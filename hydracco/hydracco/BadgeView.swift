@@ -13,7 +13,11 @@ struct BadgeView: View {
     @State var hydration: Hydration
 
     var body: some View {
-        FlutterBadgeView(rewardMessage: rewardMessage)
+        if hydration.id < 20 {
+            FlutterPerformanceView(rewardMessage: rewardMessage)
+        } else {
+            FlutterSlowView(rewardMessage: rewardMessage)
+        }
     }
 
     var rewardMessage: String {
@@ -25,8 +29,9 @@ struct BadgeView: View {
     }
 }
 
-/// Flutter is based on viewcontrollers so we need a representable struct
-struct FlutterBadgeView: UIViewControllerRepresentable {
+/// Flutter is based on viewcontrollers so we need a representable struct.
+/// This struct showcases the usage of a prewarmed engine.
+struct FlutterPerformanceView: UIViewControllerRepresentable {
     let rewardMessage: String
     /// Flutter dependencies are passed in through the view environment - another
     /// option would be a DI framework like `Factory`
@@ -53,4 +58,20 @@ struct FlutterBadgeView: UIViewControllerRepresentable {
             controller.pushRoute("/badgeonly/\(message)")
         }
     }
+}
+
+/// This example does not use a prewarmed engine
+struct FlutterSlowView: UIViewControllerRepresentable {
+    let rewardMessage: String
+
+    func makeUIViewController(context: Context) -> UIViewController {
+        let message = rewardMessage.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+        let controller = FlutterViewController(project: nil,
+                                               initialRoute: "/badgeonly/\(message)",
+                                               nibName: nil,
+                                               bundle: nil)
+        return controller
+    }
+
+    func updateUIViewController(_ uiViewController: UIViewController, context: Context) {}
 }
