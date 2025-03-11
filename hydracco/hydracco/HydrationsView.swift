@@ -22,7 +22,17 @@ struct HydrationsView: View {
                         .background(backgroundColor)
                 } else {
                     List (viewModel.hydrations) { hydration in
-                        HydrationView(hydration: hydration)
+                        let message = switch hydration.amount {
+                        case 0..<2: "Keep hydrating!"
+                        case 2..<4: "You're doing great!"
+                        default: "water ninja!"
+                        }
+                        NavigationLink(
+                            destination: BadgeView(rewardMessage: message,
+                                                   id: hydration.id)
+                        ) {
+                            HydrationView(hydration: hydration)
+                        }
                     }
                 }
             }
