@@ -14,23 +14,22 @@ struct HydrationsView: View {
     private let backgroundColor = Color(red: 0.62, green: 0.89, blue: 0.77)
 
     var body: some View {
-        NavigationStack {
+        NavigationView {
             Group {
                 if viewModel.hydrations.isEmpty {
+
+                    /// Zero view - no hydrations yet
+                    /// Here we would check for permission and load data from health
                     Text("Hydration data loading...")
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
                         .background(backgroundColor)
                 } else {
-                    List (viewModel.hydrations) { hydration in
-                        let message = switch hydration.amount {
-                        case 0..<2: "Keep hydrating!"
-                        case 2..<4: "You're doing great!"
-                        default: "water ninja!"
-                        }
-                        NavigationLink(
-                            destination: BadgeView(rewardMessage: message,
-                                                   id: hydration.id)
-                        ) {
+
+                    /// List of hydrations
+                    List(viewModel.hydrations) { hydration in
+
+                        /// Passes the hydration to the badge view - there flutter is at the game
+                        NavigationLink(destination: BadgeView(hydration: hydration)) {
                             HydrationView(hydration: hydration)
                         }
                     }
@@ -39,6 +38,8 @@ struct HydrationsView: View {
             .background(backgroundColor)
             .scrollContentBackground(.hidden)
             .navigationTitle(Text("hydracco"))
+
+            /// Telling the viewmodel to load hydrations
             .task {
                 await viewModel.loadData()
             }

@@ -4,8 +4,10 @@
 //
 //  Created by Marco Sanna on 10.03.25.
 //
+
 import SwiftUI
 
+/// Very simple cell for the hydrations list
 struct HydrationView: View {
     let hydration: Hydration
 
@@ -21,5 +23,9 @@ struct HydrationView: View {
 }
 
 #Preview {
-    HydrationView(hydration: Hydration(id: 1, date: Calendar.current.date(byAdding: .day, value: -11, to: Date())!, amount: 2.34512))
+    HydrationView(hydration: Hydration(
+        id: 1,
+        date: Calendar.current.date(byAdding: .day, value: -11, to: Date())!,
+        amount: 2.34512)
+    )
 }

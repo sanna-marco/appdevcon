@@ -4,11 +4,12 @@
 //
 //  Created by Marco Sanna on 10.03.25.
 //
+
 import Foundation
 
 /// Holds the datastructure of a hydration, currently identified
 /// as amount of liters and a date
-struct Hydration: Identifiable {
+struct Hydration: Identifiable, Hashable {
     let id: Int
     let date: Date
     let amount: Double
