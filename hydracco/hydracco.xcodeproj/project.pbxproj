@@ -8,14 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		A5106E9A2D7D046B0008F2AA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A5106E992D7D046B0008F2AA /* Assets.xcassets */; };
-		A5106EA52D7D052A0008F2AA /* RiveRuntime in Frameworks */ = {isa = PBXBuildFile; productRef = A5106EA42D7D052A0008F2AA /* RiveRuntime */; };
-		A5106EAB2D7D05670008F2AA /* hydracco.riv in Resources */ = {isa = PBXBuildFile; fileRef = A5106EAA2D7D05670008F2AA /* hydracco.riv */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		A5106E922D7D046A0008F2AA /* hydracco.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hydracco.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5106E992D7D046B0008F2AA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		A5106EAA2D7D05670008F2AA /* hydracco.riv */ = {isa = PBXFileReference; lastKnownFileType = file; path = hydracco.riv; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -36,7 +33,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A5106EA52D7D052A0008F2AA /* RiveRuntime in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,7 +61,6 @@
 			children = (
 				A5106EA82D7D054B0008F2AA /* Preview Content */,
 				A5106E992D7D046B0008F2AA /* Assets.xcassets */,
-				A5106EAA2D7D05670008F2AA /* hydracco.riv */,
 			);
 			path = assets;
 			sourceTree = "<group>";
@@ -91,7 +86,6 @@
 			);
 			name = hydracco;
 			packageProductDependencies = (
-				A5106EA42D7D052A0008F2AA /* RiveRuntime */,
 			);
 			productName = hydracco;
 			productReference = A5106E922D7D046A0008F2AA /* hydracco.app */;
@@ -122,7 +116,6 @@
 			mainGroup = A5106E892D7D04690008F2AA;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				A5106EA32D7D052A0008F2AA /* XCRemoteSwiftPackageReference "rive-ios" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = A5106E932D7D046A0008F2AA /* Products */;
@@ -139,7 +132,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A5106EAB2D7D05670008F2AA /* hydracco.riv in Resources */,
 				A5106E9A2D7D046B0008F2AA /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -356,25 +348,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		A5106EA32D7D052A0008F2AA /* XCRemoteSwiftPackageReference "rive-ios" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/rive-app/rive-ios";
-			requirement = {
-				kind = exactVersion;
-				version = 6.7.2;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		A5106EA42D7D052A0008F2AA /* RiveRuntime */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = A5106EA32D7D052A0008F2AA /* XCRemoteSwiftPackageReference "rive-ios" */;
-			productName = RiveRuntime;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = A5106E8A2D7D04690008F2AA /* Project object */;
 }

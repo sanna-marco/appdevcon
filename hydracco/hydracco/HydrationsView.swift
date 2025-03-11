@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+/// Shows a list of hydrations in a very basic list view.
+/// A tap on a list item leads to the badge lizard coming from Flutter
 struct HydrationsView: View {
     @State private var viewModel = HydrationsViewModel()
     private let backgroundColor = Color(red: 0.62, green: 0.89, blue: 0.77)
