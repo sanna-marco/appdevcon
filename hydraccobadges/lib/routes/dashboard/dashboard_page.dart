@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:hydraccobadges/routes/dashboard/badges/badge_route.dart';
 import 'package:hydraccobadges/routes/dashboard/dashboard_route.dart';
 
+/// Simple unstyled page to show a button that then pushes
+/// the reward page on the navigation stack
 class DashboardPage extends StatelessWidget {
   const DashboardPage({super.key});
 
@@ -12,12 +14,21 @@ class DashboardPage extends StatelessWidget {
         spacing: 50,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text("Rewards", style: Theme.of(context).textTheme.bodyLarge),
+          Text("REWARDS", style: Theme.of(context).textTheme.bodyLarge),
           ElevatedButton(
             onPressed: () {
               BadgeRoute().go(context);
             },
-            child: Text("Basic hydration reward"),
+            child: Text("LIZARD REWARD"),
+          ),
+
+          /// Caution, pressing this opens the reward page without
+          /// scaffold
+          ElevatedButton(
+            onPressed: () {
+              BadgeContentOnlyRoute(message: "AWESOME DRINKER!").go(context);
+            },
+            child: Text("LIZARD REWARD - EMBEDDED"),
           ),
         ],
       ),

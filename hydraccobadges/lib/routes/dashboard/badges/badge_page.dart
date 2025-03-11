@@ -3,7 +3,10 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+/// Shows a reward badge lizard style
 class BadgePage extends StatelessWidget {
+  /// Full page badge widget, showing the [rewardMessage] on top
+  /// of a lizard animation and some stars
   const BadgePage({super.key, required this.rewardMessage});
 
   final String rewardMessage;
@@ -15,21 +18,26 @@ class BadgePage extends StatelessWidget {
       child: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          spacing: 20,
+          spacing: 40,
           children: [
-            Text(
-              'YOU. DRANK. A. LOT!',
-              style: GoogleFonts.vastShadow(textStyle: TextStyle(fontSize: 20)),
-            ),
+            Text(rewardMessage, style: GoogleFonts.vastShadow(textStyle: TextStyle(fontSize: 20)))
+                .animate(delay: Duration(milliseconds: 200))
+                .scale(curve: Curves.bounceOut, begin: Offset(2, 2), end: Offset(1, 1))
+                .then()
+                .shimmer(duration: Duration(milliseconds: 300)),
+
+            /// Stacking the circle rotating background below the lizard
             Stack(
               alignment: AlignmentDirectional.center,
               children: [
-                SvgPicture.asset(
-                  'assets/svg/circle.svg',
-                ).animate(onComplete: (c) => c.repeat()).rotate(duration: Duration(seconds: 5)),
+                SvgPicture.asset('assets/svg/circle.svg')
+                    .animate(onComplete: (c) => c.repeat())
+                    .rotate(curve: Curves.easeInOutBack, duration: Duration(seconds: 3)),
                 SvgPicture.asset('assets/svg/head.svg'),
               ],
             ),
+
+            /// Holds three stars, all animating on their own
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               spacing: 50,
@@ -41,7 +49,9 @@ class BadgePage extends StatelessWidget {
                       duration: Duration(milliseconds: 200),
                       begin: Offset(6, 6),
                       end: Offset.zero,
-                    ),
+                    )
+                    .animate(onComplete: (c) => c.repeat(reverse: true))
+                    .moveY(duration: Duration(milliseconds: 500), begin: -2, end: 2),
                 SvgPicture.asset('assets/svg/star.svg', width: 70)
                     .animate(delay: Duration(milliseconds: 400))
                     .fadeIn(duration: Duration(milliseconds: 700))
@@ -49,7 +59,12 @@ class BadgePage extends StatelessWidget {
                       duration: Duration(milliseconds: 200),
                       begin: Offset(6, 6),
                       end: Offset.zero,
-                    ),
+                    )
+                    .animate(
+                      delay: Duration(milliseconds: 200),
+                      onComplete: (c) => c.repeat(reverse: true),
+                    )
+                    .moveY(duration: Duration(milliseconds: 500), begin: -2, end: 2),
                 SvgPicture.asset('assets/svg/star.svg', width: 70)
                     .animate(delay: Duration(milliseconds: 600))
                     .fadeIn(duration: Duration(milliseconds: 700))
@@ -57,10 +72,20 @@ class BadgePage extends StatelessWidget {
                       duration: Duration(milliseconds: 200),
                       begin: Offset(6, 6),
                       end: Offset.zero,
-                    ),
+                    )
+                    .animate(
+                      delay: Duration(milliseconds: 400),
+                      onComplete: (c) => c.repeat(reverse: true),
+                    )
+                    .moveY(duration: Duration(milliseconds: 500), begin: -2, end: 2),
               ],
+
+              /// Reward explanation text
             ),
-            Text('GOLD STATUS', style: GoogleFonts.vastShadow(textStyle: TextStyle(fontSize: 25))),
+            Text(
+              'GOLD STATUS',
+              style: GoogleFonts.vastShadow(textStyle: TextStyle(fontSize: 25)),
+            ).animate(delay: Duration(milliseconds: 300)).shakeX(),
           ],
         ),
       ),

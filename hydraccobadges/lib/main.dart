@@ -15,6 +15,7 @@ class HydraccoApp extends StatelessWidget {
     return MaterialApp.router(
       routerConfig: _router,
       theme: ThemeData.from(colorScheme: ColorScheme.fromSeed(seedColor: Colors.grey)),
+      debugShowCheckedModeBanner: false,
     );
   }
 }
