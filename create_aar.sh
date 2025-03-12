@@ -1,4 +1,4 @@
-# Build ios frameworks
+# Build Android artifacts
 
 # Remove old output first
 rm -rf outputs
@@ -9,9 +9,9 @@ cd hydraccobadges
 # Remove all hidden build files first
 flutter clean
 
-# Recreate the .ios folder
+# Recreate the .android folder
 flutter pub get
 
-# Build fresh frameworks
-flutter build ios-framework --no-profile --no-release --output=../outputs
+# Build fresh android
+flutter build aar --no-profile --no-release --output=../outputs
 cd ..
