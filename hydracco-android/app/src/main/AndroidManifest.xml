@@ -23,6 +23,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!-- This essentially starts the flutter engine in an activity -->
+        <activity
+            android:name="io.flutter.embedding.android.FlutterActivity"
+            android:theme="@style/Theme.Hydracco"
+            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
+            android:hardwareAccelerated="true"
+            android:windowSoftInputMode="adjustResize"
+            />
     </application>
 
 </manifest>

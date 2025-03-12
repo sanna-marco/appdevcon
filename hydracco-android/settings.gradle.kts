@@ -1,5 +1,4 @@
 pluginManagement {
-
     repositories {
         google {
             content {
@@ -9,7 +8,6 @@ pluginManagement {
             }
         }
         mavenCentral()
-        maven("https://storage.googleapis.com/download.flutter.io")
         gradlePluginPortal()
     }
 }
@@ -19,6 +17,7 @@ dependencyResolutionManagement {
         google()
         mavenCentral()
         maven(url = "https://storage.googleapis.com/download.flutter.io")
+        maven(url = "../hydraccobadges/build/host/outputs/repo")
     }
 }
 
