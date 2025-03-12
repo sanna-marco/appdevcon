@@ -13,5 +13,5 @@ flutter clean
 flutter pub get
 
 # Build fresh android
-flutter build aar --no-profile --no-release --output=../outputs
+flutter build aar --no-profile --no-release
 cd ..
