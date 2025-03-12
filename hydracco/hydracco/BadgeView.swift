@@ -13,10 +13,13 @@ struct BadgeView: View {
     @State var hydration: Hydration
 
     var body: some View {
-        if hydration.id < 20 {
+        switch hydration.id {
+        case 0..<10:
             FlutterPerformanceView(rewardMessage: rewardMessage)
-        } else {
+        case 10..<20:
             FlutterSlowView(rewardMessage: rewardMessage)
+        default:
+            FlutterImmersiveView()
         }
     }
 
@@ -68,6 +71,20 @@ struct FlutterSlowView: UIViewControllerRepresentable {
         let message = rewardMessage.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
         let controller = FlutterViewController(project: nil,
                                                initialRoute: "/badgeonly/\(message)",
+                                               nibName: nil,
+                                               bundle: nil)
+        return controller
+    }
+
+    func updateUIViewController(_ uiViewController: UIViewController, context: Context) {}
+}
+
+/// This example uses the same performance view as above but with a different
+/// route to showcase problems in navigating
+struct FlutterImmersiveView: UIViewControllerRepresentable {
+    func makeUIViewController(context: Context) -> UIViewController {
+        let controller = FlutterViewController(project: nil,
+                                               initialRoute: "/badge",
                                                nibName: nil,
                                                bundle: nil)
         return controller

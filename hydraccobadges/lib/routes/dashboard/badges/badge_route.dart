@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hydraccobadges/routes/dashboard/badges/badge_page.dart';
 
@@ -8,7 +9,11 @@ class BadgeRoute extends GoRouteData {
   @override
   Widget build(BuildContext context, GoRouterState state) {
     return Scaffold(
-      appBar: AppBar(title: Text("Reward"), backgroundColor: Colors.white),
+      appBar: AppBar(
+        title: Text("Reward"),
+        backgroundColor: Colors.white,
+        actions: [IconButton(onPressed: () => SystemNavigator.pop(), icon: Icon(Icons.close))],
+      ),
       body: BadgePage(rewardMessage: "DRINKING MASTER"),
     );
   }

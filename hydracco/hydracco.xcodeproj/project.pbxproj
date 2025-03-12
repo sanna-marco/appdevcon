@@ -42,9 +42,22 @@
 		A52A65972D80BE20009D0491 /* path_provider_foundation.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = path_provider_foundation.xcframework; path = ../outputs/Debug/path_provider_foundation.xcframework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		A5146F4F2D818E3C008866C6 /* Exceptions for "hydracco" folder in "hydracco" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = A5106E912D7D046A0008F2AA /* hydracco */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		A5106E942D7D046A0008F2AA /* hydracco */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				A5146F4F2D818E3C008866C6 /* Exceptions for "hydracco" folder in "hydracco" target */,
+			);
 			path = hydracco;
 			sourceTree = "<group>";
 		};
@@ -323,6 +336,8 @@
 				DEVELOPMENT_TEAM = W9MBVS8ABZ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = hydracco/Info.plist;
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "Debugging with Flutter";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -352,6 +367,8 @@
 				DEVELOPMENT_TEAM = W9MBVS8ABZ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = hydracco/Info.plist;
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "Debugging with Flutter";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
