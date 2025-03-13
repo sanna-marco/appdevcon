@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -13,9 +14,10 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.text.style.TextAlign
 import com.marcosanna.hydracco.ui.theme.HydraccoTheme
 import io.flutter.embedding.android.FlutterActivity
 
@@ -37,9 +39,16 @@ class MainActivity : ComponentActivity() {
                             Text("Hydracco")
                         }
                     )
-                }) { innerPadding ->
-                    Column(modifier = Modifier.padding(innerPadding)) {
-                        MainContent()
+                }, floatingActionButton = {
+                    FloatingButton()
+                    }) { innerPadding ->
+                    Column(modifier = Modifier.padding(innerPadding).fillMaxSize(),
+                        verticalArrangement = Arrangement.Center,
+                        horizontalAlignment = Alignment.CenterHorizontally) {
+                        Text(
+                            "Desperately trying to get this text centered...\nHooray!",
+                            textAlign = TextAlign.Center
+                        )
                     }
                 }
             }
@@ -48,7 +57,7 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun MainContent() {
+fun FloatingButton() {
     val context = LocalContext.current
     Button(onClick = {
         context.startActivity(FlutterActivity
@@ -56,14 +65,6 @@ fun MainContent() {
             .initialRoute("/badge")
             .build(context))
     }) {
-        Text(text = "Open badge")
-    }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun MainContentPreview() {
-    HydraccoTheme {
-        MainContent()
+        Text(text = "Reward")
     }
 }

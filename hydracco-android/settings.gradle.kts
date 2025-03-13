@@ -16,7 +16,9 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        // 1. Download the flutter runtime
         maven(url = "https://storage.googleapis.com/download.flutter.io")
+        // 2. Access the aar - pom files from the local system
         maven(url = "../hydraccobadges/build/host/outputs/repo")
     }
 }
