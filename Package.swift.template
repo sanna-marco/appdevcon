@@ -1,0 +1,38 @@
+// swift-tools-version:5.9
+import PackageDescription
+
+
+let package = Package(
+    name: "Hydracco",
+    platforms: [
+        .iOS(.v14)
+    ],
+    products: [
+        .library(
+            name: "HydraccoFlutter",
+            targets: ["HydraccoFlutter"]
+        ),
+        .library(
+            name: "CallbackAPI",
+            targets: ["CallbackAPI"]
+        )
+    ],
+    targets: [
+        .target(
+            name: "CallbackAPI",
+            path: "SwiftPackage/Sources/CallbackAPI"
+        ),
+        .target(
+            name: "HydraccoFlutter",
+            dependencies: ["App.xcframework", "Flutter.xcframework", "..."],
+            path: "SwiftPackage/Sources/HydraccoFlutter"
+        ),
+        .binarytarget(
+            "name: "App.xcframework", 
+            url: "<Path-to-zip-file, has to end with .zip>", 
+            checksum: "<created by swift package tool>",
+
+        )
+    ],
+    swiftLanguageVersions: [.v5]
+)
