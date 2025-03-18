@@ -53,11 +53,13 @@ struct FlutterPerformanceView: UIViewControllerRepresentable {
     }
 
     /// Updates the controller with the latest data - essentially makes it navigate to the correct view
-    func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {
+    func updateUIViewController(_ uiViewController: UIViewControllerType,
+                                context: Context) {
         if let controller = uiViewController as? FlutterViewController {
             /// Navigating the flutter view controller to the correct content by using
             /// URL - kind of deeplinking, like GoRouter supports
-            let message = rewardMessage.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+            let message = rewardMessage
+                .addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
             controller.pushRoute("/badgeonly/\(message)")
         }
     }

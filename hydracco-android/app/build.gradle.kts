@@ -50,7 +50,8 @@ android {
 }
 
 dependencies {
-    // This loads the debug build of the flutter project as defined in the libs file
+    // This loads the debug build of the flutter project
+    // as defined in the libs file
     debugImplementation(libs.flutter.hydraccobadges.debug)
 
     implementation(libs.androidx.core.ktx)

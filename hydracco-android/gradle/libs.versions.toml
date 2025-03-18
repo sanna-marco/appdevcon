@@ -12,9 +12,10 @@ composeBom = "2024.04.01"
 flutter_hydraccobadges_debug = "1.0"
 
 [libraries]
-# This looks for a module with the given package name defined in the flutter project
+# This looks for a module with the given package
+# name defined in the flutter project
 # in the available repositories
-flutter-hydraccobadges-debug = { module = "com.marcosanna.hydracco:flutter_debug", version.ref = "flutter_hydraccobadges_debug" }
+flutter-hydraccobadges-debug = { module = "com.marcosanna.hydracco:flutter_debug", version.ref = "flutter_hydraccobadges_debug"}
 
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
