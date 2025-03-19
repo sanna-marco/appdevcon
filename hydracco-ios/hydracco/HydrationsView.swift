@@ -57,13 +57,13 @@ struct HydrationsView: View {
                 }
                 ToolbarItem(placement: .topBarTrailing) {
                     Button {
-                        Task {
-                            await PigeonHydrationApi(binaryMessenger: flutterDependencies.flutterEngine.binaryMessenger).getHydrations { result in
-                                switch result {
-                                case .success(let hydrations):
-                                    pigeonHydration = hydrations.first?.date ?? "-"
-                                default: break
-                                }
+                        flutterDependencies.pigeonHydrationApi
+                            .getHydrations { result in
+                            switch result {
+                            case .success(let hydrations):
+                                pigeonHydration = hydrations.first?.date ?? "-"
+                                showAlert = true
+                            default: break
                             }
                         }
                     } label: {

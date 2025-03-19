@@ -9,16 +9,16 @@ import Flutter
 
 /// Simple example of the roundtrip from Flutter to Swift
 class PigeonHydrationApi {
-    var flutterApi: PigeonHydrationApi
+    let flutterApi: FlutterHydrationRepository
 
     init(binaryMessenger: FlutterBinaryMessenger) {
-        flutterApi = PigeonHydrationApi(binaryMessenger: binaryMessenger)
+        flutterApi = FlutterHydrationRepository(binaryMessenger: binaryMessenger)
     }
 
     func getHydrations(
         completion: @escaping (Result<[DtoHydration], PigeonError>) -> Void
-    ) async {
-        await flutterApi.getHydrations {
+    ) {
+        flutterApi.getHydrations {
             completion($0)
         }
     }
