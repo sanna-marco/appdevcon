@@ -61,6 +61,7 @@ fun FloatingButton() {
     val context = LocalContext.current
     Button(onClick = {
         context.startActivity(FlutterActivity
+            //.withCachedEngine("cache")
             .withNewEngine()
             .initialRoute("/badge")
             .build(context))

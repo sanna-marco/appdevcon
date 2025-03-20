@@ -1,11 +1,8 @@
 # hydraccobadges
 
-A new Flutter module project.
+A Flutter module to display a draco lizard rewarding the user for drinking ... water.
 
-## Getting Started
+## What to do with that
 
-For help getting started with Flutter development, view the online
-[documentation](https://flutter.dev/).
-
-For instructions integrating Flutter modules to your existing applications,
-see the [add-to-app documentation](https://flutter.dev/to/add-to-app).
+Export to either xcframework for iOS (see create_frameworks.sh) or aar for Android (see create_aar.sh).
+If you want to exchange data you can use Pigeon. Just run `dart run pigeon --input pigeons/pigeon_hydration.dart` to create all necessary files.

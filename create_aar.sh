@@ -1,8 +1,5 @@
 # Build Android artifacts
 
-# Remove old output first
-rm -rf outputs
-
 # Step into the flutter project
 cd hydraccobadges
 

@@ -42,13 +42,14 @@ struct FlutterPerformanceView: UIViewControllerRepresentable {
 
     /// (Re-)creates  the viewcontroller
     func makeUIViewController(context: Context) -> some UIViewController {
-        /// Removing the flutter view controller from the engine
-        flutterDependencies.flutterEngine.viewController = nil
-        let controller = FlutterViewController(
-            engine: flutterDependencies.flutterEngine,
-            nibName: nil,
-            bundle: nil
-        )
+        /// Reusing the flutter view controller or creating a new one
+        guard let controller = flutterDependencies.flutterEngine.viewController else {
+            return FlutterViewController(
+                engine: flutterDependencies.flutterEngine,
+                nibName: nil,
+                bundle: nil
+            )
+        }
         return controller
     }
 
@@ -64,6 +65,8 @@ struct FlutterPerformanceView: UIViewControllerRepresentable {
         }
     }
 }
+
+
 
 /// This example does not use a prewarmed engine
 struct FlutterSlowView: UIViewControllerRepresentable {
